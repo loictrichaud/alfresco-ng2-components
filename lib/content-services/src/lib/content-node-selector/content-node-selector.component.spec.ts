@@ -393,4 +393,16 @@ describe('ContentNodeSelectorComponent', () => {
             expect(tabGroup).toBe(undefined);
         });
     });
+
+    describe('Selected nodes counter', () => {
+        it('should getSelectedCount return 0 by default', () => {
+            expect(component.getSelectedCount()).toBe(0);
+        });
+
+        it('should getSelectedCount return 1 when a node is selected', () => {
+            component.onSelect([new Node({ id: 'fake' })]);
+
+            expect(component.getSelectedCount()).toBe(1);
+        });
+    });
 });
